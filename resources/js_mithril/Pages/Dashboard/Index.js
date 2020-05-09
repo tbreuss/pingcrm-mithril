@@ -8,14 +8,14 @@ export default {
       m('p.mb-12 leading-normal', [
         'Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how ',
         m('a.text-indigo-500 underline hover:text-orange-600', {href: 'https://github.com/inertiajs'}, 'Inertia.js',
-          ' works.'
-        )
+          ' works.',
+        ),
       ]),
       m('div', [
-        m(InertiaLink, {href: '/500', class: 'btn-indigo'}, '500 error'),
+        m(InertiaLink, {route: '/500', class: 'btn-indigo'}, '500 error'),
         ' ',
-        m(InertiaLink, {href: '/404', class: 'btn-indigo'}, '404 error'),
-      ])
-    ])
-  )
+        m(InertiaLink, {route: '/404', class: 'btn-indigo'}, '404 error'),
+      ]),
+    ]),
+  ),
 }

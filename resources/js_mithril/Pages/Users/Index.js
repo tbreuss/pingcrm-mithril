@@ -19,14 +19,14 @@ const form = {
     form.data = {
       search: '',
       role: '',
-      trashed: ''
+      trashed: '',
     }
     let query = m.buildQueryString(form.data)
     form.send(query)
   },
   send: (query) => {
     Inertia.replace('/users?' + (query ? query : 'remember=forget'))
-  }
+  },
 }
 
 const url = (u) => {
@@ -44,11 +44,11 @@ export default {
           onchange: (e) => {
             form.data.role = e.target.selectedOptions[0].value
             form.submit()
-          }
+          },
         }, [
           m('option', {value: null}),
           m('option[value=user]', 'User'),
-          m('option[value=owner]', 'Owner')
+          m('option[value=owner]', 'Owner'),
         ]),
         m('label.mt-4.block.text-gray-700', 'Trashed:'),
         m('select.mt-1.w-full.form-select', {
@@ -56,45 +56,49 @@ export default {
           onchange: (e) => {
             form.data.trashed = e.target.selectedOptions[0].value
             form.submit()
-          }
+          },
         }, [
           m('option', {value: null}),
           m('option[value=with]', 'With Trashed'),
-          m('option[value=only]', 'Only Trashed')
-        ])
+          m('option[value=only]', 'Only Trashed'),
+        ]),
       ]),
-      m(InertiaLink, {class: 'btn-indigo', href: '/users/create'}, [
+      m(InertiaLink, {class: 'btn-indigo', route: '/users/create'}, [
         m('span', 'Create'),
-        m('span.hidden.md:inline', 'User')
-      ])
+        m('span.hidden.md:inline', 'User'),
+      ]),
     ]),
     m('div.bg-white rounded shadow overflow-x-auto', [
       m('table.w-full whitespace-no-wrap', [
         m('tr.text-left font-bold', [
           m('td.px-6 pt-6 pb-4', 'Name'),
           m('td.px-6 pt-6 pb-4', 'Email'),
-          m('td.px-6 pt-6 pb-4[colspan=2]', 'Role')
+          m('td.px-6 pt-6 pb-4[colspan=2]', 'Role'),
         ]),
         v.attrs.users.length > 0
           ? v.attrs.users.map((u) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
             m('td.border-t', m(InertiaLink, {
               class: 'px-6 py-4 flex items-center focus:text-indigo-500',
-              href: url(u)
-            }, u.name)),
-            m('td.border-t', m(InertiaLink, {class: 'px-6 py-4 flex items-center', href: url(u)}, u.email)),
+              route: url(u),
+            }, [u.name, u.deleted_at ? m(Icon, {
+              name: 'trash',
+              class: 'flex-shrink-0 w-3 h-3 fill-gray-400 ml-2',
+            }) : '',
+            ])),
+            m('td.border-t', m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: url(u)}, u.email)),
             m('td.border-t', m(InertiaLink, {
               class: 'px-6 py-4 flex items-center',
-              href: url(u)
+              route: url(u),
             }, u.owner ? 'Owner' : 'User')),
-            m('td.border-t w-px', m(InertiaLink, {class: 'px-4 flex items-center', href: url(u)}, m(Icon, {
+            m('td.border-t w-px', m(InertiaLink, {class: 'px-4 flex items-center', route: url(u)}, m(Icon, {
               name: 'cheveronRight',
-              class: 'block w-6 h-6 fill-gray-400'
+              class: 'block w-6 h-6 fill-gray-400',
             }))),
           ]))
           : m('tr', [
-            m('td.border-t px-6 py-4[colspan=4]', 'No users found.')
-          ])
-      ])
-    ])
-  ]))
+            m('td.border-t px-6 py-4[colspan=4]', 'No users found.'),
+          ]),
+      ]),
+    ]),
+  ])),
 }
