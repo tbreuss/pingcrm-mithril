@@ -33,6 +33,31 @@ const url = (u) => {
   return '/users/' + u.id + '/edit'
 }
 
+const rows = (users) => users.map((u) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
+  m('td.border-t', [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', route: url(u)}, [
+      u.name, u.deleted_at
+        ? m(Icon, {name: 'trash', class: 'flex-shrink-0 w-3 h-3 fill-gray-400 ml-2'})
+        : '',
+    ]),
+  ]),
+  m('td.border-t', [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: url(u)}, u.email),
+  ]),
+  m('td.border-t', [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: url(u)}, u.owner ? 'Owner' : 'User'),
+  ]),
+  m('td.border-t w-px', [
+    m(InertiaLink, {class: 'px-4 flex items-center', route: url(u)}, [
+      m(Icon, {name: 'cheveronRight', class: 'block w-6 h-6 fill-gray-400'}),
+    ]),
+  ]),
+]))
+
+const empty = () => m('tr', [
+  m('td.border-t px-6 py-4[colspan=4]', 'No users found.'),
+])
+
 export default {
   view: (v) => m(Layout, v.attrs, m('div', [
     m('h1.mb-8 font-bold text-3xl', 'Users'),
@@ -75,29 +100,7 @@ export default {
           m('td.px-6 pt-6 pb-4', 'Email'),
           m('td.px-6 pt-6 pb-4[colspan=2]', 'Role'),
         ]),
-        v.attrs.users.length > 0
-          ? v.attrs.users.map((u) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
-            m('td.border-t', m(InertiaLink, {
-              class: 'px-6 py-4 flex items-center focus:text-indigo-500',
-              route: url(u),
-            }, [u.name, u.deleted_at ? m(Icon, {
-              name: 'trash',
-              class: 'flex-shrink-0 w-3 h-3 fill-gray-400 ml-2',
-            }) : '',
-            ])),
-            m('td.border-t', m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: url(u)}, u.email)),
-            m('td.border-t', m(InertiaLink, {
-              class: 'px-6 py-4 flex items-center',
-              route: url(u),
-            }, u.owner ? 'Owner' : 'User')),
-            m('td.border-t w-px', m(InertiaLink, {class: 'px-4 flex items-center', route: url(u)}, m(Icon, {
-              name: 'cheveronRight',
-              class: 'block w-6 h-6 fill-gray-400',
-            }))),
-          ]))
-          : m('tr', [
-            m('td.border-t px-6 py-4[colspan=4]', 'No users found.'),
-          ]),
+        v.attrs.users.length > 0 ? rows(v.attrs.users) : empty(),
       ]),
     ]),
   ])),

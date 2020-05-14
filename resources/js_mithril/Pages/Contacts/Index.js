@@ -4,7 +4,7 @@ import SearchFilter from '../../Shared/SearchFilter'
 import {InertiaLink} from '../../inertia'
 import {Inertia} from '@inertiajs/inertia'
 import Icon from '../../Shared/Icon'
-//import Pagination from '../../Shared/Pagination'
+import Pagination from '../../Shared/Pagination'
 
 const form = {
   data: {
@@ -28,39 +28,38 @@ const form = {
   },
 }
 
-const editUrl = (contact) => {
+const route = (contact) => {
   return '/contacts/' + contact.id + '/edit'
 }
 
-const rows = (contacts) => contacts.length > 0
-  ? contacts.map((c) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
-    m('td.border-t', m(InertiaLink, {
-      class: 'px-6 py-4 flex items-center focus:text-indigo-500',
-      route: editUrl(c),
-    }, [
+const rows = (contacts) => contacts.map((c) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
+  m('td.border-t', [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', route: route(c)}, [
       c.name,
       c.deleted_at ? m(Icon, {name: 'trash', class: 'flex-shrink-0 w-3 h-3 fill-gray-400 ml-2'}) : '',
-    ])),
-    m('td.border-t', [
-      m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: editUrl(c), tabindex: -1}, [
-        c.organization ? m('div', c.organization.name) : '',
-      ]),
+    ])],
+  ),
+  m('td.border-t', [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: route(c), tabindex: -1}, [
+      c.organization ? m('div', c.organization.name) : '',
     ]),
-    m('td.border-t', [
-      m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: editUrl(c), tabindex: -1}, c.city),
+  ]),
+  m('td.border-t', [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: route(c), tabindex: -1}, c.city),
+  ]),
+  m('td.border-t', [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: route(c), tabindex: -1}, c.phone),
+  ]),
+  m('td.border-t w-px', [
+    m(InertiaLink, {class: 'px-4 flex items-center', route: route(c), tabindex: -1}, [
+      m(Icon, {name: 'cheveronRight', class: 'block w-6 h-6 fill-gray-400'}),
     ]),
-    m('td.border-t', [
-      m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: editUrl(c), tabindex: -1}, c.phone),
-    ]),
-    m('td.border-t w-px', [
-      m(InertiaLink, {class: 'px-4 flex items-center', route: editUrl(c), tabindex: -1}, [
-        m(Icon, {name: 'cheveronRight', class: 'block w-6 h-6 fill-gray-400'}),
-      ]),
-    ]),
-  ]))
-  : m('tr', [
-    m('td.border-t px-6 py-4[colspan=4]', 'No contacts found.'),
-  ])
+  ]),
+]))
+
+const empty = () => m('tr', [
+  m('td.border-t px-6 py-4[colspan=4]', 'No contacts found.'),
+])
 
 export default {
   view: (v) => m(Layout, v.attrs, m('div', [
@@ -94,9 +93,9 @@ export default {
           m('td.px-6 pt-6 pb-4', 'City'),
           m('td.px-6 pt-6 pb-4[colspan=2]', 'Phone'),
         ]),
-        rows(v.attrs.contacts.data),
+        v.attrs.contacts.data.length > 0 ? rows(v.attrs.contacts.data) : empty(),
       ]),
-      //m(Pagination, {links:v.attrs.contacts.links})
     ]),
+    m(Pagination, {links: v.attrs.contacts.links}),
   ])),
 }

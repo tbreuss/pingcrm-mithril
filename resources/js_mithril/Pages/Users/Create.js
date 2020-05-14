@@ -80,7 +80,7 @@ export default () => {
             m(FileInput),
           ]),
           m('div.px-8 py-4 bg-gray-100 border-t border-gray-200 flex justify-end items-center', [
-            m(LoadingButton, {class: 'btn-indigo', loading: sending}, 'Create User')
+            m(LoadingButton, {class: 'btn-indigo', loading: sending}, 'Create Contact')
           ])
         ])
       ])
