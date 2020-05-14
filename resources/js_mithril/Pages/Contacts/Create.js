@@ -99,7 +99,7 @@ export default () => {
               class: 'pr-6 pb-8 w-full lg:w-1/2',
               label: 'Country',
               selected: 'false',
-              onchange: (e) => contact.organization_id = e.target.value,
+              onchange: (e) => contact.country = e.target.value,
             }, [
               m('option', {value: null}),
               m('option[value=CA]', 'Canada'),
