@@ -55,7 +55,7 @@ export default () => {
             m(SelectInput, {
               class: 'pr-6 pb-8 w-full lg:w-1/2',
               label: 'Organization',
-              selected: 'false',
+              selected: contact.organization_id,
               onchange: (e) => contact.organization_id = e.target.value,
             }, [m('option', {value: null})].concat(attrs.organizations.map((o) =>
               m('option', {value: o.id}, o.name),
@@ -98,7 +98,7 @@ export default () => {
             m(SelectInput, {
               class: 'pr-6 pb-8 w-full lg:w-1/2',
               label: 'Country',
-              selected: 'false',
+              selected: contact.country,
               onchange: (e) => contact.country = e.target.value,
             }, [
               m('option', {value: null}),

@@ -18,7 +18,11 @@ export default {
       selected: v.attrs.selected || '',
       error: v.attrs.error || '',
       onchange: v.attrs.onchange || null,
-      oncreate: ({dom}) => dom.querySelector('[value="' + v.attrs.selected + '"]').selected = true
+      oncreate: ({dom}) => {
+        if (v.attrs.selected) {
+          dom.querySelector('[value="' + v.attrs.selected + '"]').selected = true
+        }
+      }
     }
 
     if (selectArgs.error) selectArgs.class += ' error'
