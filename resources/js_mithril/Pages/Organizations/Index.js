@@ -91,5 +91,5 @@ export default {
       ]),
     ]),
     m(Pagination, {links: v.attrs.organizations.links}),
-  ]))
+  ])),
 }

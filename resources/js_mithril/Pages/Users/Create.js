@@ -18,7 +18,7 @@ export default () => {
     email: '',
     password: '',
     owner: false,
-    photo: ''
+    photo: '',
   }
 
   const submit = (e) => {
@@ -34,7 +34,7 @@ export default () => {
       m('h1.mb-8 font-bold text-3xl', [
         m(InertiaLink, {class: 'text-indigo-400 hover:text-indigo-600', route: '/users'}, 'Users'),
         m('span.text-indigo-400 font-medium', ' / '),
-        m('span', 'Create')
+        m('span', 'Create'),
       ]),
       m('div.bg-white rounded shadow overflow-hidden max-w-3xl', [
         m('form', {onsubmit: submit}, [
@@ -44,21 +44,21 @@ export default () => {
               label: 'First name',
               value: user.first_name,
               error: attrs.errors.first_name || '',
-              onchange: (e) => user.first_name = e.target.value
+              onchange: (e) => user.first_name = e.target.value,
             }),
             m(TextInput, {
               class: 'pr-6 pb-8 w-full lg:w-1/2',
               label: 'Last name',
               value: user.last_name,
               error: attrs.errors.last_name || '',
-              onchange: (e) => user.last_name = e.target.value
+              onchange: (e) => user.last_name = e.target.value,
             }),
             m(TextInput, {
               class: 'pr-6 pb-8 w-full lg:w-1/2',
               label: 'Email',
               value: user.email,
               error: attrs.errors.email || '',
-              onchange: (e) => user.email = e.target.value
+              onchange: (e) => user.email = e.target.value,
             }),
             m(TextInput, {
               class: 'pr-6 pb-8 w-full lg:w-1/2',
@@ -66,13 +66,13 @@ export default () => {
               type: 'password',
               value: user.password,
               error: attrs.errors.password || '',
-              onchange: (e) => user.password = e.target.value
+              onchange: (e) => user.password = e.target.value,
             }),
             m(SelectInput, {
               class: 'pr-6 pb-8 w-full lg:w-1/2',
               label: 'Owner',
               selected: 'false',
-              onchange: (e) => user.owner = e.target.value
+              onchange: (e) => user.owner = e.target.value,
             }, [
               m('option[value=true]', 'Yes'),
               m('option[value=false]', 'No'),
@@ -80,10 +80,10 @@ export default () => {
             m(FileInput),
           ]),
           m('div.px-8 py-4 bg-gray-100 border-t border-gray-200 flex justify-end items-center', [
-            m(LoadingButton, {class: 'btn-indigo', loading: sending}, 'Create Contact')
-          ])
-        ])
-      ])
-    ]))
+            m(LoadingButton, {class: 'btn-indigo', loading: sending}, 'Create Contact'),
+          ]),
+        ]),
+      ]),
+    ])),
   }
 }

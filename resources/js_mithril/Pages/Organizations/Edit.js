@@ -70,7 +70,10 @@ export default () => {
           m('span.text-indigo-400 font-medium', ' / '),
           m('span', organization.name),
         ]),
-        organization.deleted_at ? m(TrashedMessage, {class:'mb-6', restore: restore}, 'This organization has been deleted.') : '',
+        organization.deleted_at ? m(TrashedMessage, {
+          class: 'mb-6',
+          restore: restore,
+        }, 'This organization has been deleted.') : '',
         m('.bg-white rounded shadow overflow-hidden max-w-3xl', [
           m('form', {onsubmit: submit}, [
             m('div.p-8 -mr-6 -mb-8 flex flex-wrap', [
@@ -136,8 +139,8 @@ export default () => {
             ]),
             m('div.px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center', [
               !organization.deleted_at ? m('button.text-red-600 hover:underline[tabindex=-1][type=button]', {onclick: destroy}, 'Delete Organization') : '',
-              m(LoadingButton, {class: 'btn-indigo ml-auto', loading: sending}, 'Update Organization')
-            ])
+              m(LoadingButton, {class: 'btn-indigo ml-auto', loading: sending}, 'Update Organization'),
+            ]),
           ]),
         ]),
         m('h2.mt-12 font-bold text-2xl', 'Contacts'),
@@ -152,6 +155,6 @@ export default () => {
           ]),
         ]),
       ]))
-    }
+    },
   }
 }

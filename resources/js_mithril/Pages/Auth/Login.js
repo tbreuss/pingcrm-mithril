@@ -37,7 +37,7 @@ export default {
               autocapitalize: 'off',
               value: email,
               error: attrs.errors.email || '',
-              onchange: (e) => email = e.target.value
+              onchange: (e) => email = e.target.value,
             }),
             m(TextInput, {
               class: 'mt-6',
@@ -45,21 +45,21 @@ export default {
               type: 'password',
               value: password,
               error: attrs.errors.password || '',
-              onchange: (e) => password = e.target.value
+              onchange: (e) => password = e.target.value,
             }),
             m('label.mt-6 select-none flex items-center[for=remember]', [
               m('input#remember.mr-1[type=checkbox]', {
-                onchange: (e) => remember = e.target.checked
+                onchange: (e) => remember = e.target.checked,
               }),
-              m('span.text-sm', 'Remember Me')
-            ])
+              m('span.text-sm', 'Remember Me'),
+            ]),
           ]),
           m('div.px-10 py-4 bg-gray-100 border-t border-gray-200 flex justify-between items-center', [
             m('a.hover:underline[tabindex=-1][href=#reset-password]', 'Forget password?'),
-            m(LoadingButton, {class: 'btn-indigo', type: 'submit', loading: sending}, 'Login')
-          ])
-        ])
-      ])
+            m(LoadingButton, {class: 'btn-indigo', type: 'submit', loading: sending}, 'Login'),
+          ]),
+        ]),
+      ]),
     )
-  }
+  },
 }

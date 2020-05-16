@@ -46,7 +46,7 @@ export default () => {
             user.last_name,
           ]),
         ]),
-        user.deleted_at ? m(TrashedMessage, {class:'mb-6', restore: restore}, 'This user has been deleted.') : '',
+        user.deleted_at ? m(TrashedMessage, {class: 'mb-6', restore: restore}, 'This user has been deleted.') : '',
         m('div.bg-white rounded shadow overflow-hidden max-w-3xl', [
           m('form', {onsubmit: submit}, [
             m('div.p-8 -mr-6 -mb-8 flex flex-wrap', [
@@ -55,21 +55,21 @@ export default () => {
                 label: 'First name',
                 value: user.first_name,
                 error: v.attrs.errors.first_name || '',
-                onchange: (e) => user.first_name = e.target.value
+                onchange: (e) => user.first_name = e.target.value,
               }),
               m(TextInput, {
                 class: 'pr-6 pb-8 w-full lg:w-1/2',
                 label: 'Last name',
                 value: user.last_name,
                 error: v.attrs.errors.last_name || '',
-                onchange: (e) => user.last_name = e.target.value
+                onchange: (e) => user.last_name = e.target.value,
               }),
               m(TextInput, {
                 class: 'pr-6 pb-8 w-full lg:w-1/2',
                 label: 'Email',
                 value: user.email,
                 error: v.attrs.errors.email || '',
-                onchange: (e) => user.email = e.target.value
+                onchange: (e) => user.email = e.target.value,
               }),
               m(TextInput, {
                 class: 'pr-6 pb-8 w-full lg:w-1/2',
@@ -77,13 +77,13 @@ export default () => {
                 type: 'password',
                 value: user.password,
                 error: v.attrs.errors.password || '',
-                onchange: (e) => user.password = e.target.value
+                onchange: (e) => user.password = e.target.value,
               }),
               m(SelectInput, {
                 class: 'pr-6 pb-8 w-full lg:w-1/2',
                 label: 'Owner',
                 selected: 'false',
-                onchange: (e) => user.owner = e.target.value
+                onchange: (e) => user.owner = e.target.value,
               }, [
                 m('option[value=true]', 'Yes'),
                 m('option[value=false]', 'No'),
@@ -92,11 +92,11 @@ export default () => {
             ]),
             m('div.px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center', [
               !user.deleted_at ? m('button.text-red-600 hover:underline[tabindex=-1][type=button]', {onclick: destroy}, 'Delete User') : '',
-              m(LoadingButton, {class: 'btn-indigo ml-auto', loading: sending}, 'Update User')
-            ])
-          ])
-        ])
+              m(LoadingButton, {class: 'btn-indigo ml-auto', loading: sending}, 'Update User'),
+            ]),
+          ]),
+        ]),
       ]))
-    }
+    },
   }
 }

@@ -45,7 +45,10 @@ export default () => {
             contact.last_name,
           ]),
         ]),
-        contact.deleted_at ? m(TrashedMessage, {class:'mb-6', restore: restore}, 'This contact has been deleted.') : '',
+        contact.deleted_at ? m(TrashedMessage, {
+          class: 'mb-6',
+          restore: restore,
+        }, 'This contact has been deleted.') : '',
         m('.bg-white rounded shadow overflow-hidden max-w-3xl', [
           m('form', {onsubmit: submit}, [
             m('div.p-8 -mr-6 -mb-8 flex flex-wrap', [
@@ -126,11 +129,11 @@ export default () => {
             ]),
             m('div.px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center', [
               !contact.deleted_at ? m('button.text-red-600 hover:underline[tabindex=-1][type=button]', {onclick: destroy}, 'Delete Contact') : '',
-              m(LoadingButton, {class: 'btn-indigo ml-auto', loading: sending}, 'Update Contact')
-            ])
+              m(LoadingButton, {class: 'btn-indigo ml-auto', loading: sending}, 'Update Contact'),
+            ]),
           ]),
         ]),
       ]))
-    }
+    },
   }
 }
