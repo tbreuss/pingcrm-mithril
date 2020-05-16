@@ -16,7 +16,7 @@ const tailwindcss = require('tailwindcss')
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js_mithril/app.js', 'public/js')
   .postCss('resources/css/app.css', 'public/css/app.css')
   .options({
     postCss: [
@@ -31,15 +31,6 @@ mix.js('resources/js/app.js', 'public/js')
         }),
       ] : [],
     ],
-  })
-  .webpackConfig({
-    output: { chunkFilename: 'js/[name].js?id=[chunkhash]' },
-    resolve: {
-      alias: {
-        vue$: 'vue/dist/vue.runtime.esm.js',
-        '@': path.resolve('resources/js'),
-      },
-    },
   })
   .version()
   .sourceMaps()

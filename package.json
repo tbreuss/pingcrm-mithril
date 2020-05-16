@@ -20,14 +20,13 @@
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.15",
         "popper.js": "^1.16.0",
-        "portal-vue": "^1.5.1",
         "postcss-import": "^12.0.1",
         "postcss-nesting": "^7.0.1",
         "resolve-url-loader": "^2.3.2",
         "tailwindcss": "^1.2.0-canary.5",
-        "vue": "^2.6.11",
-        "vue-meta": "^2.3.1",
-        "vue-template-compiler": "^2.6.11",
         "mithril": "^2.0.4"
+    },
+    "devDependencies": {
+        "vue-template-compiler": "^2.6.11"
     }
 }
