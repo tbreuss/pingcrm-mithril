@@ -11,26 +11,26 @@ export default {
     m('.mb-4', [
       m(InertiaLink, {class: 'flex items-center group py-3', route: '/'}, [
         m(Icon, {name: 'dashboard', class: iconClass()}),
-        m('div', {class: labelClass()}, 'Dashboard')
-      ])
+        m('div', {class: labelClass()}, 'Dashboard'),
+      ]),
     ]),
     m('.mb-4', [
       m(InertiaLink, {class: 'flex items-center group py-3', route: '/organizations'}, [
         m(Icon, {name: 'office', class: iconClass()}),
-        m('div', {class: labelClass()}, 'Organizations')
-      ])
+        m('div', {class: labelClass()}, 'Organizations'),
+      ]),
     ]),
     m('.mb-4', [
       m(InertiaLink, {class: 'flex items-center group py-3', route: '/contacts'}, [
         m(Icon, {name: 'users', class: iconClass()}),
-        m('div', {class: labelClass()}, 'Contacts')
-      ])
+        m('div', {class: labelClass()}, 'Contacts'),
+      ]),
     ]),
     m('.mb-4', [
       m(InertiaLink, {class: 'flex items-center group py-3', route: '/reports'}, [
         m(Icon, {name: 'printer', class: iconClass()}),
-        m('div', {class: labelClass()}, 'Reports')
-      ])
+        m('div', {class: labelClass()}, 'Reports'),
+      ]),
     ]),
-  ])
+  ]),
 }

@@ -4,11 +4,11 @@ export default {
   view: (v) => {
 
     const divArgs = {
-      class: v.attrs.class || ''
+      class: v.attrs.class || '',
     }
 
     const labelArgs = {
-      class: 'form-label'
+      class: 'form-label',
     }
 
     const selectArgs = {
@@ -22,7 +22,7 @@ export default {
         if (v.attrs.selected) {
           dom.querySelector('[value="' + v.attrs.selected + '"]').selected = true
         }
-      }
+      },
     }
 
     if (selectArgs.error) selectArgs.class += ' error'
@@ -30,7 +30,7 @@ export default {
     return m('div', divArgs, [
       m('label', labelArgs, v.attrs.label + ':'),
       m('select', selectArgs, v.children),
-      v.attrs.error ? m('div.form-error', v.attrs.error) : ''
+      v.attrs.error ? m('div.form-error', v.attrs.error) : '',
     ])
-  }
+  },
 }

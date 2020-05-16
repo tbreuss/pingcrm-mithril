@@ -4,11 +4,11 @@ export default {
   view: ({attrs}) => {
 
     const divArgs = {
-      class: attrs.class || ''
+      class: attrs.class || '',
     }
 
     const labelArgs = {
-      class: 'form-label'
+      class: 'form-label',
     }
 
     const inputArgs = {
@@ -19,7 +19,7 @@ export default {
       autofocus: attrs.autofocus || false,
       autocapitalize: attrs.autocapitalize || 'off',
       onchange: attrs.onchange || null,
-      onclick: attrs.onclick || null
+      onclick: attrs.onclick || null,
     }
 
     if (inputArgs.error) inputArgs.class += ' error'
@@ -27,7 +27,7 @@ export default {
     return m('div', divArgs, [
       m('label', labelArgs, attrs.label + ':'),
       m('input', inputArgs),
-      attrs.error ? m('div.form-error', attrs.error) : ''
+      attrs.error ? m('div.form-error', attrs.error) : '',
     ])
-  }
+  },
 }

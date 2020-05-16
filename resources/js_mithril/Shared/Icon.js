@@ -22,5 +22,5 @@ export default {
       return m.trust(icons[v.attrs.name](cssClass))
     }
     return ''
-  }
+  },
 }

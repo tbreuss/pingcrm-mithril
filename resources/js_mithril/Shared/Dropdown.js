@@ -13,7 +13,7 @@ export default () => {
         onclick: (e) => {
           e.stopPropagation()
           show = true
-        }
+        },
       }, [
         attrs.default,
         show ? m('div', [
@@ -21,7 +21,7 @@ export default () => {
             onclick: (e) => {
               e.stopPropagation()
               show = false
-            }
+            },
           }),
           m('div[style=position: absolute; z-index: 99999;][ref=dropdown]', {
             onclick: (e) => {
@@ -33,14 +33,14 @@ export default () => {
                 placement: attrs.placement || 'bottom-end',
                 modifiers: {
                   preventOverflow: {
-                    boundariesElement: attrs.boundary || 'scrollParent'
+                    boundariesElement: attrs.boundary || 'scrollParent',
                   },
                 },
               })
-            }
-          }, attrs.dropdown)
-        ]) : ''
+            },
+          }, attrs.dropdown),
+        ]) : '',
       ])
-    }
+    },
   }
 }

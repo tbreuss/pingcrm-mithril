@@ -8,8 +8,8 @@ const button = (v) => {
   return {
     view: (v) => m('button', {class: className, type: type}, [
       v.attrs.loading ? m('div.btn-spinner mr-2') : '',
-      v.children
-    ])
+      v.children,
+    ]),
   }
 }
 
