@@ -17,7 +17,7 @@ export default {
           preserveScroll: false,
           preserveState: false,
         })
-      }
+      },
     }, v.children)
-  }
+  },
 }

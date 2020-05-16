@@ -4,7 +4,7 @@ import m from 'mithril'
 const empty = {
   view: function () {
     return m('div', 'empty')
-  }
+  },
 }
 
 const state = {
@@ -32,14 +32,14 @@ const app = {
         state.props = app.transformProps(props)
         state.key = preserveState ? state.key : Date.now()
         m.redraw()
-      }
+      },
     })
   },
   view: function () {
     return [
-      m(state.component, state.props)
+      m(state.component, state.props),
     ]
-  }
+  },
 }
 
 export default app
