@@ -1,0 +1,58 @@
+name: Build & Deploy
+
+on: [push]
+
+env:
+  NODE_VERSION: '13.x'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-suggest
+
+      - name: Setup configuration
+        run: cp .env.example .env
+
+      - name: Generate application key
+        run: php artisan key:generate
+
+      - name: Create an SQLite database
+        run: touch database/database.sqlite
+
+      - name: Run database migrations
+        run: php artisan migrate
+
+      - name: Run database seeder
+        run: php artisan db:seed
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run prod
+
+      - name: Cleanup directory
+        run: |
+          rm -rf .git .github node_modules resources tests
+          rm .gitignore
+
+      - name: Deploy to server via scp
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          source: "."
+          target: "/home/tbreusst/public_html/ch.tebe.pingcrm-mithril"
