@@ -2,8 +2,8 @@ import {Inertia} from '@inertiajs/inertia'
 import m from 'mithril'
 
 const empty = {
-  view: function () {
-    return m('div', 'empty')
+  view: () => {
+    return m('div')
   },
 }
 
@@ -23,23 +23,17 @@ const app = {
     required: true,
   },
   transformProps: props => props,
-  oncreate: function (v) {
-    Inertia.init({
-      initialPage: app.initialPage,
-      resolveComponent: app.resolveComponent,
-      updatePage: (component, props, {preserveState}) => {
-        state.component = component
-        state.props = app.transformProps(props)
-        state.key = preserveState ? state.key : Date.now()
-        m.redraw()
-      },
-    })
-  },
-  view: function () {
-    return [
-      m(state.component, state.props),
-    ]
-  },
+  oncreate: () => Inertia.init({
+    initialPage: app.initialPage,
+    resolveComponent: app.resolveComponent,
+    updatePage: (component, props, {preserveState}) => {
+      state.component = component
+      state.props = app.transformProps(props)
+      state.key = preserveState ? state.key : Date.now()
+      m.redraw()
+    },
+  }),
+  view: () => m(state.component, state.props),
 }
 
 export default app

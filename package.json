@@ -8,7 +8,7 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "mithril": "webpack resources/js_mithril/index.js --output public/js/app.js -d --watch"
+        "mithril": "webpack resources/js_mithril/app.js --output public/js/app.js -d --watch"
     },
     "dependencies": {
         "@fullhuman/postcss-purgecss": "^1.3.0",
