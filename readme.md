@@ -11,6 +11,10 @@ The backend is edited as little as possible to enable direct comparison between 
 
 ![](https://raw.githubusercontent.com/inertiajs/pingcrm/master/screenshot.png)
 
+## Demo
+
+<https://pingcrm-mithril.tebe.ch>
+
 ## Installation
 
 Clone the repo locally:
