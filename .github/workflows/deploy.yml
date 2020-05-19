@@ -44,7 +44,7 @@ jobs:
 
       - name: Cleanup directory
         run: |
-          rm -rf .git .github node_modules resources tests
+          rm -rf .git .github node_modules tests
           rm .gitignore
 
       - name: Deploy to server via scp
