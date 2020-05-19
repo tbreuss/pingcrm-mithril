@@ -26,10 +26,10 @@ jobs:
         run: touch database/database.sqlite
 
       - name: Run database migrations
-        run: php artisan migrate
+        run: php artisan migrate --force
 
       - name: Run database seeder
-        run: php artisan db:seed
+        run: php artisan db:seed --force
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v1
