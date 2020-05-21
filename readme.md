@@ -1,3 +1,5 @@
+![Build & Deploy](https://github.com/tbreuss/pingcrm-mithril/workflows/Build%20&%20Deploy/badge.svg)
+
 # Ping CRM on Mithril.js
 
 A [Mithril.js](https://mithril.js.org) demo application to illustrate how [Inertia.js](https://inertiajs.com) works.
