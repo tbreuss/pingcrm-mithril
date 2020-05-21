@@ -1,5 +1,5 @@
 import m from 'mithril'
-import {InertiaLink} from '../inertia/index'
+import {InertiaLink} from '@tebe/inertia-mithril'
 import Icon from './Icon'
 
 const isUrl = () => false

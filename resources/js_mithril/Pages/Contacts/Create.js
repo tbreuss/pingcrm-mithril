@@ -1,6 +1,6 @@
 import m from 'mithril'
 import Layout from '../../Shared/Layout'
-import {InertiaLink} from '../../inertia'
+import {InertiaLink} from '@tebe/inertia-mithril'
 import TextInput from '../../Shared/TextInput'
 import SelectInput from '../../Shared/SelectInput'
 import LoadingButton from '../../Shared/LoadingButton'

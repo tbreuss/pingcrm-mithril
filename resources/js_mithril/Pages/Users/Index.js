@@ -1,7 +1,7 @@
 import m from 'mithril'
 import Layout from '../../Shared/Layout'
 import SearchFilter from '../../Shared/SearchFilter'
-import {InertiaLink} from '../../inertia'
+import {InertiaLink} from '@tebe/inertia-mithril'
 import Icon from '../../Shared/Icon'
 import {Inertia} from '@inertiajs/inertia'
 

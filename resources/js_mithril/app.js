@@ -1,6 +1,6 @@
 import m from 'mithril'
 
-import {InertiaApp} from './inertia/index'
+import {InertiaApp} from '@tebe/inertia-mithril'
 
 const app = document.getElementById('app')
 

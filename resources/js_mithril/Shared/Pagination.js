@@ -1,5 +1,5 @@
 import m from 'mithril'
-import {InertiaLink} from '../inertia/index'
+import {InertiaLink} from '@tebe/inertia-mithril'
 
 export default {
   view: (v) => m('div.mt-6 -mb-1 flex flex-wrap',

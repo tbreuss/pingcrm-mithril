@@ -1,6 +1,6 @@
 import m from 'mithril'
 import Layout from '../../Shared/Layout'
-import {InertiaLink} from '../../inertia'
+import {InertiaLink} from '@tebe/inertia-mithril'
 import TrashedMessage from '../../Shared/TrashedMessage'
 import {Inertia} from '@inertiajs/inertia'
 import TextInput from '../../Shared/TextInput'

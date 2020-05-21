@@ -3,7 +3,7 @@ import Logo from '../Shared/Logo'
 import MainMenu from './MainMenu'
 import Dropdown from './Dropdown'
 import Icon from './Icon'
-import {InertiaLink} from '../inertia/index'
+import {InertiaLink} from '@tebe/inertia-mithril'
 import FlashMessages from './FlashMessages'
 
 export default {

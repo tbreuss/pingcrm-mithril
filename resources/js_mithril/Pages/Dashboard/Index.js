@@ -1,6 +1,6 @@
 import m from 'mithril'
 import Layout from '../../Shared/Layout'
-import {InertiaLink} from '../../inertia/index'
+import {InertiaLink} from '@tebe/inertia-mithril'
 
 export default {
   view: (v) => m(Layout, v.attrs, m('div', [
