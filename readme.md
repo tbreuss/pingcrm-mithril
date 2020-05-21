@@ -90,3 +90,8 @@ To run the Ping CRM tests, run:
 ```
 phpunit
 ```
+
+## Credits
+
+- Original work by Jonathan Reinink (@reinink) and contributors
+- Port to Mithril.js by Thomas Breuss (@tbreuss)
