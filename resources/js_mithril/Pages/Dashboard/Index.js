@@ -7,9 +7,10 @@ export default {
     m('h1.mb-8 font-bold text-3xl', 'Dashboard'),
     m('p.mb-12 leading-normal', [
       'Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how ',
-      m('a.text-indigo-500 underline hover:text-orange-600', {href: 'https://github.com/inertiajs'}, 'Inertia.js',
-        ' works.',
-      ),
+      m('a.text-indigo-500 underline hover:text-orange-600', {href: 'https://inertiajs.com'}, 'Inertia.js'),
+      ' works with ',
+      m('a.text-indigo-500 underline hover:text-orange-600', {href: 'https://mithril.js.org'}, 'Mithril.js'),
+      '.',
     ]),
     m('div', [
       m(InertiaLink, {route: '/500', class: 'btn-indigo'}, '500 error'),
