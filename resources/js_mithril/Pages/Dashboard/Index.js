@@ -13,9 +13,9 @@ export default {
       '.',
     ]),
     m('div', [
-      m(InertiaLink, {route: '/500', class: 'btn-indigo'}, '500 error'),
+      m(InertiaLink, {href: '/500', class: 'btn-indigo'}, '500 error'),
       ' ',
-      m(InertiaLink, {route: '/404', class: 'btn-indigo'}, '404 error'),
+      m(InertiaLink, {href: '/404', class: 'btn-indigo'}, '404 error'),
     ]),
   ])),
 }

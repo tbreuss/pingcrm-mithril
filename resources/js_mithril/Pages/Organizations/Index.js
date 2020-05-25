@@ -34,19 +34,19 @@ const route = (organization) => {
 
 const rows = (organizations) => organizations.map((o) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
   m('td.border-t', [
-    m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', route: route(o)}, [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', href: route(o)}, [
       o.name,
       o.deleted_at ? m(Icon, {name: 'trash', class: 'flex-shrink-0 w-3 h-3 fill-gray-400 ml-2'}) : '',
     ])],
   ),
   m('td.border-t', [
-    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: route(o), tabindex: -1}, o.city),
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', href: route(o), tabindex: -1}, o.city),
   ]),
   m('td.border-t', [
-    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: route(o), tabindex: -1}, o.phone),
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', href: route(o), tabindex: -1}, o.phone),
   ]),
   m('td.border-t w-px', [
-    m(InertiaLink, {class: 'px-4 flex items-center', route: route(o), tabindex: -1}, [
+    m(InertiaLink, {class: 'px-4 flex items-center', href: route(o), tabindex: -1}, [
       m(Icon, {name: 'cheveronRight', class: 'block w-6 h-6 fill-gray-400'}),
     ]),
   ]),
@@ -74,7 +74,7 @@ export default {
           m('option[value=only]', 'Only Trashed'),
         ]),
       ]),
-      m(InertiaLink, {class: 'btn-indigo', route: '/organizations/create'}, [
+      m(InertiaLink, {class: 'btn-indigo', href: '/organizations/create'}, [
         m('span', 'Create'),
         ' ',
         m('span.hidden.md:inline', 'Organization'),

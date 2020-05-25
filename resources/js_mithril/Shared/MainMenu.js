@@ -9,25 +9,25 @@ const labelClass = () => isUrl() ? 'text-white' : 'text-indigo-300 group-hover:t
 export default {
   view: v => m('div', {class: v.attrs.class}, [
     m('.mb-4', [
-      m(InertiaLink, {class: 'flex items-center group py-3', route: '/'}, [
+      m(InertiaLink, {class: 'flex items-center group py-3', href: '/'}, [
         m(Icon, {name: 'dashboard', class: iconClass()}),
         m('div', {class: labelClass()}, 'Dashboard'),
       ]),
     ]),
     m('.mb-4', [
-      m(InertiaLink, {class: 'flex items-center group py-3', route: '/organizations'}, [
+      m(InertiaLink, {class: 'flex items-center group py-3', href: '/organizations'}, [
         m(Icon, {name: 'office', class: iconClass()}),
         m('div', {class: labelClass()}, 'Organizations'),
       ]),
     ]),
     m('.mb-4', [
-      m(InertiaLink, {class: 'flex items-center group py-3', route: '/contacts'}, [
+      m(InertiaLink, {class: 'flex items-center group py-3', href: '/contacts'}, [
         m(Icon, {name: 'users', class: iconClass()}),
         m('div', {class: labelClass()}, 'Contacts'),
       ]),
     ]),
     m('.mb-4', [
-      m(InertiaLink, {class: 'flex items-center group py-3', route: '/reports'}, [
+      m(InertiaLink, {class: 'flex items-center group py-3', href: '/reports'}, [
         m(Icon, {name: 'printer', class: iconClass()}),
         m('div', {class: labelClass()}, 'Reports'),
       ]),

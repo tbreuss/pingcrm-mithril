@@ -10,7 +10,7 @@ export default {
       }, link.label)
       : m(InertiaLink, {
           class: 'mr-1 mb-1 px-4 py-3 text-sm border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500' + (link.active ? ' bg-white' : '') + (link.label === 'Next' ? ' ml-auto' : ''),
-          url: link.url,
+          href: link.url,
         },
         link.label),
     ),

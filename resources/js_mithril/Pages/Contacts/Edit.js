@@ -37,7 +37,7 @@ export default () => {
       contact = attrs.contact || null
       return m(Layout, attrs, m('div', [
         m('h1.mb-8 font-bold text-3xl', [
-          m(InertiaLink, {class: 'text-indigo-400 hover:text-indigo-600', route: '/contacts'}, 'Contacts'),
+          m(InertiaLink, {class: 'text-indigo-400 hover:text-indigo-600', href: '/contacts'}, 'Contacts'),
           m('span.text-indigo-400 font-medium', ' / '),
           m('span', [
             contact.first_name,

@@ -16,7 +16,7 @@ export default {
       }, [
         m('.md:flex', [
           m('.bg-indigo-900 md:flex-shrink-0 md:w-56 px-6 py-4 flex items-center justify-between md:justify-center', [
-            m(InertiaLink, {class: 'mt-1', route: '/'}, m(Logo, {class: 'fill-white', width: 120, height: 28})),
+            m(InertiaLink, {class: 'mt-1', href: '/'}, m(Logo, {class: 'fill-white', width: 120, height: 28})),
             m(Dropdown, {
               class: 'md:hidden',
               placement: 'bottom-end',
@@ -43,15 +43,15 @@ export default {
               ]),
               dropdown: m('div.mt-2 py-2 shadow-xl bg-white rounded text-sm', [
                 m(InertiaLink, {
-                  route: '/users/' + v.attrs.auth.user.id + '/edit',
+                  href: '/users/' + v.attrs.auth.user.id + '/edit',
                   class: 'block px-6 py-2 hover:bg-indigo-500 hover:text-white',
                 }, 'My Profile'),
                 m(InertiaLink, {
-                  route: '/users',
+                  href: '/users',
                   class: 'block px-6 py-2 hover:bg-indigo-500 hover:text-white',
                 }, 'Manage Users'),
                 m(InertiaLink, {
-                  route: '/logout',
+                  href: '/logout',
                   method: 'post',
                   class: 'block px-6 py-2 hover:bg-indigo-500 hover:text-white',
                 }, 'Logout'),

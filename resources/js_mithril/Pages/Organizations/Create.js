@@ -31,7 +31,7 @@ export default () => {
   return {
     view: ({attrs}) => m(Layout, attrs, m('div', [
       m('h1.mb-8 font-bold text-3xl', [
-        m(InertiaLink, {class: 'text-indigo-400 hover:text-indigo-600', route: '/organizations'}, 'Organizations'),
+        m(InertiaLink, {class: 'text-indigo-400 hover:text-indigo-600', href: '/organizations'}, 'Organizations'),
         m('span.text-indigo-400 font-medium', ' / '),
         m('span', 'Create'),
       ]),

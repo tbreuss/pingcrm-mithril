@@ -39,19 +39,19 @@ export default () => {
 
   const rows = (contacts) => contacts.map((c) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
     m('td.border-t', [
-      m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', route: route(c)}, [
+      m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', href: route(c)}, [
         c.name,
         c.deleted_at ? m(Icon, {name: 'trash', class: 'flex-shrink-0 w-3 h-3 fill-gray-400 ml-2'}) : '',
       ])],
     ),
     m('td.border-t', [
-      m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: route(c), tabindex: -1}, c.city),
+      m(InertiaLink, {class: 'px-6 py-4 flex items-center', href: route(c), tabindex: -1}, c.city),
     ]),
     m('td.border-t', [
-      m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: route(c), tabindex: -1}, c.phone),
+      m(InertiaLink, {class: 'px-6 py-4 flex items-center', href: route(c), tabindex: -1}, c.phone),
     ]),
     m('td.border-t w-px', [
-      m(InertiaLink, {class: 'px-4 flex items-center', route: route(c), tabindex: -1}, [
+      m(InertiaLink, {class: 'px-4 flex items-center', href: route(c), tabindex: -1}, [
         m(Icon, {name: 'cheveronRight', class: 'block w-6 h-6 fill-gray-400'}),
       ]),
     ]),
@@ -66,7 +66,7 @@ export default () => {
       organization = attrs.organization || null
       return m(Layout, attrs, m('div', [
         m('h1.mb-8 font-bold text-3xl', [
-          m(InertiaLink, {class: 'text-indigo-400 hover:text-indigo-600', route: '/organizations'}, 'Organizations'),
+          m(InertiaLink, {class: 'text-indigo-400 hover:text-indigo-600', href: '/organizations'}, 'Organizations'),
           m('span.text-indigo-400 font-medium', ' / '),
           m('span', organization.name),
         ]),

@@ -35,20 +35,20 @@ const url = (u) => {
 
 const rows = (users) => users.map((u) => m('tr.hover:bg-gray-100 focus-within:bg-gray-100', [
   m('td.border-t', [
-    m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', route: url(u)}, [
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center focus:text-indigo-500', href: url(u)}, [
       u.name, u.deleted_at
         ? m(Icon, {name: 'trash', class: 'flex-shrink-0 w-3 h-3 fill-gray-400 ml-2'})
         : '',
     ]),
   ]),
   m('td.border-t', [
-    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: url(u)}, u.email),
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', href: url(u)}, u.email),
   ]),
   m('td.border-t', [
-    m(InertiaLink, {class: 'px-6 py-4 flex items-center', route: url(u)}, u.owner ? 'Owner' : 'User'),
+    m(InertiaLink, {class: 'px-6 py-4 flex items-center', href: url(u)}, u.owner ? 'Owner' : 'User'),
   ]),
   m('td.border-t w-px', [
-    m(InertiaLink, {class: 'px-4 flex items-center', route: url(u)}, [
+    m(InertiaLink, {class: 'px-4 flex items-center', href: url(u)}, [
       m(Icon, {name: 'cheveronRight', class: 'block w-6 h-6 fill-gray-400'}),
     ]),
   ]),
@@ -88,7 +88,7 @@ export default {
           m('option[value=only]', 'Only Trashed'),
         ]),
       ]),
-      m(InertiaLink, {class: 'btn-indigo', route: '/users/create'}, [
+      m(InertiaLink, {class: 'btn-indigo', href: '/users/create'}, [
         m('span', 'Create'),
         m('span.hidden.md:inline', 'User'),
       ]),
