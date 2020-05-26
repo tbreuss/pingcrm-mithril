@@ -11,7 +11,7 @@ This application is a port of the original Ping CRM written in Laravel and Vue.j
 The frontend is written in Mithril.js, a modern client-side JavaScript framework for building Single Page Applications.
 The backend is edited as little as possible to enable direct comparison between Mithril.js and Vue.js, and to merge the upstream repository into this fork without effort.
 
-![](https://raw.githubusercontent.com/inertiajs/pingcrm/master/screenshot.png)
+![](screenshot.png)
 
 ## Demo
 
