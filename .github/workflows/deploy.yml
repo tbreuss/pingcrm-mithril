@@ -13,6 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup PHP with Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer:v1
+
       - name: Install PHP dependencies
         run: composer install --no-dev --prefer-dist --no-progress --no-suggest
 
